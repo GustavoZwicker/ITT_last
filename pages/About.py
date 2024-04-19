@@ -5,7 +5,7 @@ from googletrans import Translator
 import base64
 import dash_bootstrap_components as dbc
 
-test_png = r'Assets\Images\home.png'
+test_png = r'Assets/Images/home.png'
 test_base64 = base64.b64encode(open(test_png, 'rb').read()).decode('ascii')
 
 colors = {
@@ -38,7 +38,7 @@ layout = html.Div([
                     html.Div("Home", style= {'font-size': '20px', 'color': colors['itt'], 'margin-top': '10px'})
                 ], style={'display': 'flex','flex-direction': 'column', 'align-items': 'center'}),
             ], className='buttom-class',  color= colors['background']
-    ), href= "/home"
+    ), href= "/"
         )
     ], style={'margin-top': '20px', 'marginLeft': '5%', 'marginRight': '5%'}),
 
@@ -50,6 +50,7 @@ layout = html.Div([
             {'label': 'English', 'value': 'en'},
         ],
         value='pt',
+	clearable=False,
         style= {'width': '150px', 'marginLeft': '5%', 'marginRight': '5%'}
     ),
     html.Div(id='about-text', style= {'fontSize': 20, 'margin-top': '30px', 'marginLeft': '5%', 'marginRight': '5%', 'textAlign': 'justify', 'margin-bottom': '50px'})

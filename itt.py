@@ -19,4 +19,5 @@ app.layout= html.Div([dcc.Store('input_text', data=[] ,storage_type='session'), 
                     ,dash.page_container])
 # app.layout= html.Div([dcc.Store('result_text', storage_type='session'), dash.page_container])
 
+# app.run_server(debug=True, host="0.0.0.0")
 app.run_server(debug=True)

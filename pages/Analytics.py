@@ -22,12 +22,6 @@ dash.register_page(__name__, path='/')
 # Página "analytics"
 layout = html.Div([
     dcc.Store('input_value', storage_type='memory'),
-    html.Div([dcc.Link(dbc.Button('< Back', size="lg", outline=True, className="back",
-                        style={
-                            "margin-top": "20px",
-                            'width': '10%',
-                            'color': colors['itt']
-                        }), href="/home", refresh=True)], style={'display': 'inline-block'}),
     html.Div([
     html.H1(
         children='ITT- Is That True?',
@@ -61,8 +55,7 @@ layout = html.Div([
                 options={
                         'pt': 'Portuguese-BR',
                         'en':'English'
-                },
-                value='Montreal',
+                }, value='pt', clearable=False,
                 # style={
                 #         'width': '200px',
                 #         'height': '20px',
@@ -93,8 +86,13 @@ layout = html.Div([
                    'width': '32%',
                    'display': 'inline-block'},
                ), html.Div(children=html.Div(id='redirect'))
-        ], style={'textAlign': 'center'})
-        ]
+        ], style={'textAlign': 'center'}),
+        html.Div([
+            html.Span("**It is important to note that this is a testing environment trained with a limited number of articles and the portuguese dataset was found to have difficulties in classifying articles with word size lower than 150 words, due the size distribution in the articles cointained in it. So we highly recommend the usage of texts with a word count higher than 150 words in portuguese.", style={'color': 'black', 'fontSize': 15, 'fontWeight': 'bold'}),
+            html.Span(" Always ", style={'color': 'red', 'fontSize': 20, 'fontWeight': 'bold'}), html.Span("check your sources.**", style={'color': 'black', 'fontSize': 15, 'fontWeight': 'bold'})
+        ],
+        style= {'textAlign': 'justify', 'margin-top': '50px', 'margin-bottom': '20px', 'marginLeft': '25%', 'marginRight': '25%'})
+    ]
 )
 
 # Callbacks para a página "analytics"
@@ -109,7 +107,6 @@ layout = html.Div([
 )
 def get_input(analyze_button, input_model):
     if analyze_button != 0:
-        print(input_model)
         return input_model
 
 @callback(
@@ -121,7 +118,6 @@ def get_input(analyze_button, input_model):
 )
 def get_input(analyze_button, choose_language):
     if analyze_button != 0:
-        print(choose_language)
         return choose_language
     
 @callback(

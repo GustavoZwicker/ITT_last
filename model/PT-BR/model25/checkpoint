@@ -1,0 +1,2 @@
+model_checkpoint_path: "mdb_model_gru"
+all_model_checkpoint_paths: "mdb_model_gru"
