@@ -100,12 +100,6 @@ html.Div([
 
 )
 
-# @callback(
-#     Output('output_text', 'data'),
-#     Input('output_text', 'data'))
-# def pass_input_to_destination(input_model):
-#     return input_model
-
 @callback(
     Output('itt-output', 'children'),
     [
@@ -114,8 +108,6 @@ html.Div([
     ]
     )
 def get_result(input_model, language):
-    # itt_instance = ITT(glove_model)  # Instancie a classe ITT
-    # itt_instance.text = input_model  # Defina o texto a ser analisado
     print(f'RESULT: {input_model}')
     
     output_text = itt_instance.Analyse(input_model, language)

@@ -69,16 +69,6 @@ layout = html.Div([
         ],
         style={'textAlign': 'center'}
     ),
-    # dbc.Row([html.H2(
-    #     children='-------------------- OR --------------------',
-    #     style={
-    #         'textAlign': 'center',
-    #         'color': colors['gray'],
-    #         'fontSize': '15px'
-    #     }
-    # )
-    # ], justify='center'),
-
     dbc.Button('Analyze', size="lg", id="analyze_button", n_clicks=0,
                outline=True, className="analyze", color="primary",
                style={
